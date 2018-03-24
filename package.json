@@ -1,0 +1,21 @@
+{
+  "name": "Mergd",
+  "version": "0.0.1",
+  "description": "A designer-friendly Github interaction experience.",
+  "main": "/src/main/index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "electron",
+    "sketch",
+    "github",
+    "designers"
+  ],
+  "author": "Laura Santamaria <nimbinatus@gmail.com>",
+  "license": "MIT",
+  "dependencies": "",
+  "dev-dependencies": [
+    "electron"
+  ]
+}
