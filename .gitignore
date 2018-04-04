@@ -3,3 +3,5 @@ node_modules
 *.swp
 debug.log
 package-lock.json
+
+yarn-error.log

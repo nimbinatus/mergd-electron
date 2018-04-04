@@ -2,7 +2,7 @@
   "name": "Mergd",
   "version": "0.0.1",
   "description": "A designer-friendly Github interaction experience.",
-  "main": "./src/main/index.js",
+  "main": "src/main/index.js",
   "scripts": {
     "start": "electron ."
   },
@@ -17,6 +17,14 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.8.4",
-    "electron-builder": "^20.8.1"
+    "electron-builder": "^20.8.1",
+    "electron-webpack": "^2.0.1",
+    "webpack": "^1.0.1"
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.4"
+  },
+  "scripts": {
+    "dev": "electron-webpack dev"
   }
 }
