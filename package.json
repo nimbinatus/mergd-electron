@@ -4,7 +4,11 @@
   "description": "A designer-friendly Github interaction experience.",
   "main": "src/main/index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "repository": "https://github.com/nimbinatus/mergd-electron",
   "keywords": [
@@ -19,12 +23,9 @@
     "electron": "^1.8.4",
     "electron-builder": "^20.8.1",
     "electron-webpack": "^2.0.1",
-    "webpack": "^1.0.1"
+    "webpack": "^4.4.1"
   },
   "dependencies": {
     "source-map-support": "^0.5.4"
-  },
-  "scripts": {
-    "dev": "electron-webpack dev"
   }
 }
