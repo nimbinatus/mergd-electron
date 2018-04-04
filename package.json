@@ -2,10 +2,11 @@
   "name": "Mergd",
   "version": "0.0.1",
   "description": "A designer-friendly Github interaction experience.",
-  "main": "/src/main/index.js",
+  "main": "./src/main/index.js",
   "scripts": {
     "start": "electron ."
   },
+  "repository": "https://github.com/nimbinatus/mergd-electron",
   "keywords": [
     "electron",
     "sketch",
@@ -14,8 +15,8 @@
   ],
   "author": "Laura Santamaria <nimbinatus@gmail.com>",
   "license": "MIT",
-  "dependencies": "",
-  "dev-dependencies": [
-    "electron"
-  ]
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "electron-builder": "^20.8.1"
+  }
 }
