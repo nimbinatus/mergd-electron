@@ -1,18 +1,24 @@
-const { ipcRenderer } = require(electron);
+/* jshint esversion:6 */
 
-console.log("hello, world");
+'use strict';
+const styles = document.createElement('style');
+styles.innerText = `@import url(https://unpkg.com/spectre.css/dist/spectre.min.css);.empty{display:flex;flex-direction:column;justify-content:center;height:100vh;position:relative}.footer{bottom:0;font-size:13px;left:50%;opacity:.9;position:absolute;transform:translateX(-50%);width:100%}`;
+const vueScript = document.createElement('script');
+vueScript.setAttribute('type', 'text/javascript'), vueScript.setAttribute('src', 'https://unpkg.com/vue'), vueScript.onload = init, document.head.appendChild(vueScript), document.head.appendChild(styles);
 
-ipcRenderer.on('ping-pong', (event, data) => {
-  console.log('Received ping: ' + data);
-
-  ipcRenderer.send('ping-pong', {
-    ping: true
-  }, 1000);
-});
-
-const headerBar = document.getElementById("mainBar");
-const bodyBar = document.getElementById("bodyBar");
-
-headerBar.insert("<h1>Mergd</h1>");
-
-bodyBar.insert("<p>Hello, world. My name is Mergd.</p>");
+function init() {
+  Vue.config.devtools = false, Vue.config.productionTip = false, new Vue({
+    data: {
+      versions: {
+        electron: process.versions.electron,
+        electronWebpack: require('electron-webpack/package.json').version
+      }
+    },
+    methods: {
+      open(b) {
+        require('electron').shell.openExternal(b);
+      }
+    },
+    template: `<h1>Mergd</h1><p>Hello, world. My name is Mergd.</p><div><div class=empty><p class="empty-title h5">Welcome to your new project!<p class=empty-subtitle>Get started now and take advantage of the great documentation at hand.<div class=empty-action><button @click="open('https://webpack.electron.build')"class="btn btn-primary">Documentation</button> <button @click="open('https://electron.atom.io/docs/')"class="btn btn-primary">Electron</button><br><ul class=breadcrumb><li class=breadcrumb-item>electron-webpack v{{ versions.electronWebpack }}</li><li class=breadcrumb-item>electron v{{ versions.electron }}</li></ul></div><p class=footer>This intitial landing page can be easily removed from <code>src/renderer/index.js</code>.</p></div></div>`
+  }).$mount('#app')
+}
